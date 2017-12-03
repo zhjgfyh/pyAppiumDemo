@@ -8,7 +8,7 @@ import config
 
 BASE_SERVER_URL = 'http://localhost:'
 port = '4723'
-SERVER_URL = BASE_SERVER_URL + port + 'wd/hub'
+SERVER_URL = BASE_SERVER_URL + port + '/wd/hub'
 
 
 @pytest.fixture(scope="function")
