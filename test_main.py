@@ -15,6 +15,7 @@ class TestSimpleAndroid(object):
         # driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
         print("test case1...")
         assert driver is not None
+        driver.find_element_by_class_name('android.view.View').click()
 
     def test_find_elements_sec(self, driver):
         # driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
