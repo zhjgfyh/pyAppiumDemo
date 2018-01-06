@@ -9,6 +9,7 @@ BASE_SERVER_URL = 'http://localhost:'
 port = '4723'
 SERVER_URL = BASE_SERVER_URL + port + '/wd/hub'
 
+
 def get_driver():
     try:
         desired_caps = config.DesiredCaps.desired_caps
@@ -26,11 +27,11 @@ def driver(request):
     print("start...")
     driver = None
     driver = get_driver()
+
     def tear_down():
         # end the session
         print("tear down...")
         driver.quit()
+
     request.addfinalizer(tear_down)
     return driver
-
-

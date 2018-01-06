@@ -1,5 +1,4 @@
 {
-  "main.py::TestSimpleAndroid::()::test_find_elements": true,
-  "test_main.py::TestSimpleAndroid::()::test_find_elements": true,
-  "test_main.py::TestSimpleAndroid::()::test_find_elements_sec": true
+  "main.py::TestSimpleAndroid::()::test_find_elements": true, 
+  "test_main.py::TestSimpleAndroid::()::test_find_elements": true
 }

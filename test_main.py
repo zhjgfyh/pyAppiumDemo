@@ -3,10 +3,10 @@
 from time import sleep
 
 import pytest
+import sys
 
 from base_test_case import *
 from utils.find_elements import *
-
 
 '''
 pytest单独的存放fixtures的文件
@@ -15,11 +15,16 @@ pytest单独的存放fixtures的文件
 
 class TestSimpleAndroid(object):
 
+    @pytest.mark.skip(reason="Don't run in debug mode.")
     def test_login(self, driver):
         # driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
-        print("test case1...")
+        print("start to test " + sys._getframe().f_code.co_name)
         assert driver is not None
-        mm_find_element_by_id(driver, "com.manboker.headportrait:id/entry_album_set").click()
+
+        login_entry_home = mm_find_element_by_id(driver, "com.manboker.headportrait:id/entry_album_set")
+        assert login_entry_home is not None, "用户已经登录"
+        login_entry_home.click()
+
         # mm_find_element_by_id(driver, "com.manboker.headportrait:id/no_message_image").click()
         sleep(3)
         driver.save_screenshot("./screenshot/login.png")
@@ -53,7 +58,11 @@ class TestSimpleAndroid(object):
         assert self_profile is not None, "可能未进入profile页面"
         sleep(5)
 
-    @pytest.mark.skip(reason="Don't run in debug mode.")
-    def test_find_elements_sec(self, driver):
+    def test_logout(self, driver):
         # driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
-        driver.save_screenshot("./1.png")
+        print("start to test " + sys._getframe().f_code.co_name)
+        assert driver is not None
+
+        logout_entry_home = mm_find_element_by_id(driver, "com.manboker.headportrait:id/entry_album_set_icon")
+        assert logout_entry_home is not None, "用户还未登录"
+        logout_entry_home.click()

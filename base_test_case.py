@@ -9,7 +9,7 @@ import config
 
 class BaseTestCase():
     @pytest.fixture(scope="function")
-    def driver(self,request):
+    def driver(self, request):
         print("start...")
         desired_caps = config.DesiredCaps.desired_caps
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
@@ -18,10 +18,9 @@ class BaseTestCase():
             # end the session
             print("tear down...")
             self.driver.quit()
+
         request.addfinalizer(tear_down)
         return self.driver
 
     def test_find_elements(self, driver):
         print("test case...")
-
-

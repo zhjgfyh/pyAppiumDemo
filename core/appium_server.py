@@ -1,25 +1,30 @@
 # encoding: utf-8
 import socket
-#自动启动Appium server
+
+
+# 自动启动Appium server
 
 
 def start_service():
     print("start appium server...")
-    #to do
+    # to do
 
 
 def stop_service():
     print("stop appium server...")
-    #to do
+    # to do
 
 
 def service_cmds():
     pass
-    #if '-1'!= udid:
-        # to do
+    # if '-1'!= udid:
+    # to do
+
 
 def is_appium_running():
     return False
+
+
 def find_free_port():
     """
     函数返回值是当前可用来监听的一个随机端口,int

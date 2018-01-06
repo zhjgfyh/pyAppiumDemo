@@ -9,10 +9,7 @@ app_caps_aoyou = {
 app_caps_moman = {
     'appPackage': 'com.manboker.headportrait',  # 包名
     'appActivity': '.activities.SplashActivity',  # launcher activity
-    'appWaitActivity': '.activities.EntryActivity',
-    'unicodeKeyboard': True,
-    'resetKeyboard': True,
-    'noReset': True
+    'appWaitActivity': '.activities.EntryActivity'
 }
 
 samsung_s7 = {
@@ -35,4 +32,6 @@ class DesiredCaps:
     desired_caps = dict(samsung_s7, **app_caps_moman)
     desired_caps['deviceReadyTimeout'] = 100
     desired_caps['newCommandTimeout'] = 120
-
+    desired_caps['unicodeKeyboard'] = True
+    desired_caps['resetKeyboard'] = True
+    desired_caps['noReset'] = True

@@ -8,6 +8,7 @@ import config
 from base_test_case import *
 import time
 
+
 class TestPayment(object):
 
     def test_shop(self, driver):
@@ -15,6 +16,8 @@ class TestPayment(object):
         # "Shop" page
         # sh = self.driver.find_element_by_xpath("//*[@class='android.view.View' and @index='2']")
         # sh.click()
+
+
 '''
         # Switch
         print self.driver.contexts
