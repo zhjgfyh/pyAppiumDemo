@@ -58,6 +58,7 @@ class TestSimpleAndroid(object):
         assert self_profile is not None, "可能未进入profile页面"
         sleep(5)
 
+    @pytest.mark.skip(reason="Don't run in debug mode.")
     def test_logout(self, driver):
         # driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
         print("start to test " + sys._getframe().f_code.co_name)
@@ -66,3 +67,23 @@ class TestSimpleAndroid(object):
         logout_entry_home = mm_find_element_by_id(driver, "com.manboker.headportrait:id/entry_album_set_icon")
         assert logout_entry_home is not None, "用户还未登录"
         logout_entry_home.click()
+
+    def test_payment(self, driver):
+        # driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
+        print("start to test " + sys._getframe().f_code.co_name)
+        assert driver is not None, "Driver is not available."
+
+        sleep(3)
+        homepage_entries = mm_find_elements_by_class(driver, "android.view.View")
+        assert homepage_entries[2] is not None, "shop entry is not available."
+        homepage_entries[2].click()
+        sleep(5)
+
+        print(driver.contexts)
+        print(driver.current_context)
+        driver.switch_to.context('WEBVIEW_0')
+        print(driver.current_context)
+        sleep(5)
+
+
+

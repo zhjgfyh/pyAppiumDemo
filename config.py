@@ -29,7 +29,7 @@ huawei_7i = {
 
 class DesiredCaps:
     desired_caps = {}
-    desired_caps = dict(samsung_s7, **app_caps_moman)
+    desired_caps = dict(samsung_s7, **app_caps_aoyou)
     desired_caps['deviceReadyTimeout'] = 100
     desired_caps['newCommandTimeout'] = 120
     desired_caps['unicodeKeyboard'] = True

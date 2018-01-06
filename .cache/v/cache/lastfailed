@@ -1,4 +1,5 @@
 {
   "main.py::TestSimpleAndroid::()::test_find_elements": true, 
-  "test_main.py::TestSimpleAndroid::()::test_find_elements": true
+  "test_main.py::TestSimpleAndroid::()::test_find_elements": true, 
+  "test_main.py::TestSimpleAndroid::()::test_payment": true
 }
