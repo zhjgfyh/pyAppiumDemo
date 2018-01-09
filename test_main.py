@@ -1,11 +1,10 @@
 # encoding: utf-8
 
+import sys
 from time import sleep
 
-import pytest
-import sys
-
 from base_test_case import *
+#from conftest import driver
 from utils.find_elements import *
 
 '''
@@ -14,6 +13,37 @@ pytest单独的存放fixtures的文件
 
 
 class TestSimpleAndroid(object):
+
+    pytest.mark.skip(reason="Don't run in debug mode.")
+    def test_Emoticons(self, driver):
+        print("start to test " + sys._getframe().f_code.co_name)
+        assert driver is not None
+
+        emos = mm_find_elements_by_class(driver, 'android.view.View')
+        assert emos is not None, "表情页未展示"
+        emos[1].click()
+
+        search_btn = mm_find_element_by_id(driver, "com.manboker.headportrait:id/action_edit")
+        assert search_btn is not None, "搜索按钮未找到"
+        search_btn.click()
+
+        input_keywords = mm_find_element_by_id(driver, "com.manboker.headportrait:id/search_src_text")
+        assert input_keywords is not None, "关键字输入框未找到"
+        #input_keywords.click()
+        input_keywords.send_keys('love')
+        driver.press_keycode(66)
+        sleep(5)
+        driver.save_screenshot("./screenshot/searchLove.png")
+
+        searchResult = mm_find_elements_by_class(driver, "android.widget.LinearLayout")
+        assert searchResult is not None, "表情Heart未找到"
+        searchResult[0].click()
+
+        saveGif = mm_find_elements_by_class(driver, "android.widget.RelativeLayout")
+        assert saveGif is not None, "保存Gif按钮未找到"
+        saveGif[1].click()
+        sleep(5)
+        driver.save_screenshot("./screenshot/saveGif.png")
 
     @pytest.mark.skip(reason="Don't run in debug mode.")
     def test_login(self, driver):
@@ -39,6 +69,7 @@ class TestSimpleAndroid(object):
 
         user_name_input = mm_find_element_by_id(driver, "com.manboker.headportrait:id/login_user")
         assert user_name_input is not None, "未找到用户登录框"
+        #user_name_input.clear()
         user_name_input.click()
         # user_name_input.set_value('18600274100')
         user_name_input.send_keys('18600274100')
@@ -68,6 +99,8 @@ class TestSimpleAndroid(object):
         assert logout_entry_home is not None, "用户还未登录"
         logout_entry_home.click()
 
+
+'''
     def test_payment(self, driver):
         # driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
         print("start to test " + sys._getframe().f_code.co_name)
@@ -84,6 +117,5 @@ class TestSimpleAndroid(object):
         driver.switch_to.context('WEBVIEW_0')
         print(driver.current_context)
         sleep(5)
-
-
+'''
 
