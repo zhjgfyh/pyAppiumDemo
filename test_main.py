@@ -37,7 +37,7 @@ class TestSimpleAndroid(object):
 
         searchResult = mm_find_elements_by_class(driver, "android.widget.LinearLayout")
         assert searchResult is not None, "表情Heart未找到"
-        searchResult[0].click()
+        searchResult[8].click()
 
         saveGif = mm_find_elements_by_class(driver, "android.widget.RelativeLayout")
         assert saveGif is not None, "保存Gif按钮未找到"
@@ -45,7 +45,7 @@ class TestSimpleAndroid(object):
         sleep(5)
         driver.save_screenshot("./screenshot/saveGif.png")
 
-    @pytest.mark.skip(reason="Don't run in debug mode.")
+    pytest.mark.skip(reason="Don't run in debug mode.")
     def test_login(self, driver):
         # driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
         print("start to test " + sys._getframe().f_code.co_name)
@@ -63,9 +63,9 @@ class TestSimpleAndroid(object):
         assert login_btn is not None, "登录按钮不存在"
         login_btn.click()
 
-        send_phone_msg_btn = mm_find_element_by_id(driver, "com.manboker.headportrait:id/set_other")
-        assert send_phone_msg_btn is not None, "登录弹框未展示"
-        send_phone_msg_btn.click()
+        #send_phone_msg_btn = mm_find_element_by_id(driver, "com.manboker.headportrait:id/set_other")
+        #assert send_phone_msg_btn is not None, "登录弹框未展示"
+        #send_phone_msg_btn.click()
 
         user_name_input = mm_find_element_by_id(driver, "com.manboker.headportrait:id/login_user")
         assert user_name_input is not None, "未找到用户登录框"
@@ -89,7 +89,7 @@ class TestSimpleAndroid(object):
         assert self_profile is not None, "可能未进入profile页面"
         sleep(5)
 
-    @pytest.mark.skip(reason="Don't run in debug mode.")
+    pytest.mark.skip(reason="Don't run in debug mode.")
     def test_logout(self, driver):
         # driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
         print("start to test " + sys._getframe().f_code.co_name)
@@ -99,6 +99,19 @@ class TestSimpleAndroid(object):
         assert logout_entry_home is not None, "用户还未登录"
         logout_entry_home.click()
 
+        self_profile = mm_find_element_by_id(driver, "com.manboker.headportrait:id/specific_user_headicon")
+        assert self_profile is not None, "可能未进入profile页面"
+        self_profile.click()
+
+        logout_btn = mm_find_element_by_id(driver, "com.manboker.headportrait:id/set_log_in_text")
+        assert logout_btn is not None, "退出登录按钮未找到"
+        logout_btn.click()
+
+        confirm_btn = mm_find_element_by_id(driver, "android:id/button1")
+        assert confirm_btn is not None, "确定按钮未找到"
+        confirm_btn.click()
+
+        sleep(2)
 
 '''
     def test_payment(self, driver):
