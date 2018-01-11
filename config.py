@@ -32,6 +32,7 @@ Nexus = {
     'deviceName': '192.168.140.101:5555'
 }
 
+
 samsung_s6 = {
     'platformName': 'Android',
     'version': '7.0',
