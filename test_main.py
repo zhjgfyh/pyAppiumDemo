@@ -14,7 +14,7 @@ pytest单独的存放fixtures的文件
 
 class TestSimpleAndroid(object):
 
-    pytest.mark.skip(reason="Don't run in debug mode.")
+    #@pytest.mark.skip(reason="Don't run in debug mode.")
     def test_Emoticons(self, driver):
         print("start to test " + sys._getframe().f_code.co_name)
         assert driver is not None
@@ -45,7 +45,7 @@ class TestSimpleAndroid(object):
         sleep(5)
         driver.save_screenshot("./screenshot/saveGif.png")
 
-    pytest.mark.skip(reason="Don't run in debug mode.")
+    #@pytest.mark.skip(reason="Don't run in debug mode.")
     def test_login(self, driver):
         # driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
         print("start to test " + sys._getframe().f_code.co_name)
@@ -89,7 +89,7 @@ class TestSimpleAndroid(object):
         assert self_profile is not None, "可能未进入profile页面"
         sleep(5)
 
-    pytest.mark.skip(reason="Don't run in debug mode.")
+    #@pytest.mark.skip(reason="Don't run in debug mode.")
     def test_logout(self, driver):
         # driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
         print("start to test " + sys._getframe().f_code.co_name)
