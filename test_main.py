@@ -1,4 +1,4 @@
-# encoding: utf-8
+#-*-coding:utf-8-*-
 
 import sys
 from time import sleep
@@ -14,7 +14,7 @@ pytest单独的存放fixtures的文件
 
 class TestSimpleAndroid(object):
 
-    #@pytest.mark.skip(reason="Don't run in debug mode.")
+    # @pytest.mark.skip(reason="Don't run in debug mode.")
     def test_Caricatures(self, driver):
         print("start to test " + sys._getframe().f_code.co_name)
         assert driver is not None
@@ -99,24 +99,26 @@ class TestSimpleAndroid(object):
         face_edit_btn = mm_find_element_by_id(driver, "dress_iv")
         assert face_edit_btn is not None, "美妆按钮未找到"
         face_edit_btn.click()
-        sleep(1)
+        sleep(2)
 
         glass_btn = mm_find_element_by_id(driver, "select_glasses_fl")
         assert glass_btn is not None, "眼镜选项未找到"
         glass_btn.click()
-        sleep(1)
 
-        select_glass = mm_find_elements_by_class(driver, "android.widget.RelativeLayout")
-        assert select_glass is not None, "第四款眼镜未找到"
-        select_glass[4].click()
-        sleep(2)
+        hair_btn = mm_find_element_by_id(driver, "select_hair_fl")
+        assert hair_btn is not None, "发型选项未找到"
+        hair_btn.click()
+
+        first_longHair = mm_find_element_by_id(driver, "dress_gallery_dr")
+        assert first_longHair is not None, "1st long hair not found"
+        first_longHair.click()
 
         dressing_confirm = mm_find_element_by_id(driver, "dressing_goback")
         assert dressing_confirm is not None, "美妆确认按钮未找到"
-        driver.save_screenshot("./screenshot/addGlass.png")
+        driver.save_screenshot("./screenshot/changeHair.png")
         dressing_confirm.click()
 
-    @pytest.mark.skip(reason="Don't run in debug mode.")
+    # @pytest.mark.skip(reason="Don't run in debug mode.")
     def test_Emoticons(self, driver):
         print("start to test " + sys._getframe().f_code.co_name)
         assert driver is not None
@@ -147,7 +149,7 @@ class TestSimpleAndroid(object):
         sleep(5)
         driver.save_screenshot("./screenshot/saveGif.png")
 
-    @pytest.mark.skip(reason="Don't run in debug mode.")
+    # @pytest.mark.skip(reason="Don't run in debug mode.")
     def test_login(self, driver):
         # driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
         print("start to test " + sys._getframe().f_code.co_name)
@@ -191,7 +193,7 @@ class TestSimpleAndroid(object):
         assert self_profile is not None, "可能未进入profile页面"
         sleep(5)
 
-    @pytest.mark.skip(reason="Don't run in debug mode.")
+    # @pytest.mark.skip(reason="Don't run in debug mode.")
     def test_logout(self, driver):
         # driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
         print("start to test " + sys._getframe().f_code.co_name)
