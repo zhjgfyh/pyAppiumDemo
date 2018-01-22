@@ -1,4 +1,4 @@
-# encoding: utf-8
+#-*-coding:utf-8-*-
 
 app_caps_aoyou = {
     'appPackage': 'com.aoyou.android',
@@ -42,7 +42,7 @@ samsung_s6 = {
 
 class DesiredCaps:
     desired_caps = {}
-    desired_caps = dict(samsung_s6, **app_caps_moman)
+    desired_caps = dict(Nexus, **app_caps_moman)
     desired_caps['deviceReadyTimeout'] = 100
     desired_caps['newCommandTimeout'] = 120
     desired_caps['unicodeKeyboard'] = "True"

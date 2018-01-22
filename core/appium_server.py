@@ -1,6 +1,6 @@
-# encoding: utf-8
-import socket
+#-*-coding:utf-8-*-
 
+import socket
 
 # 自动启动Appium server
 

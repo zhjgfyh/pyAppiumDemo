@@ -1,4 +1,4 @@
-# encoding: utf-8
+#-*-coding:utf-8-*-
 
 """
     寻找控件封装
